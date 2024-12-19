@@ -5,25 +5,31 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        String[][] array = {
-                {"2", "3", "4", "5", "6", "7", "8", "9"},
-                {"ABC", "DEF", "GHI", "JKL", "MNO", "PQRS", "TUV", "WXYZ"}
-        };
+        int x = scanner.nextInt();
+        int n = 0;
+        int position = 0;
 
-        int sum = 0;
-        String[] str = scanner.next().toUpperCase().split("");
-
-        for (int i = 0; i < str.length; i++) {
-            for (int j = 0; j < array[0].length; j++) {
-                if (array[1][j].contains(str[i])) {
-                    sum +=  Integer.parseInt(array[0][j]) + 1;
-                }
-
-            }
+        while(x > 0){
+           n++;
+           x -= n;
         }
 
-        System.out.println(sum);
-        scanner.close();
+        position = x + n;
 
+
+
+        int molecule , denominator;
+
+        if(n % 2 == 0){
+            molecule = position;
+            denominator = n - position + 1;
+        }else {
+            molecule = n - position +1;
+            denominator = position;
+        }
+
+       String result = molecule + "/" + denominator;
+
+        System.out.println(result);
     }
 }
